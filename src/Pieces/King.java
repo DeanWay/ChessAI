@@ -5,8 +5,11 @@ package Pieces;
  */
 public class King extends Piece {
 
+    private boolean isAlive;
+
     public King(String location, Color color){
         super(location, color);
+        this.isAlive = true;
     }
 
     @Override
