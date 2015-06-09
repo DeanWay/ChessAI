@@ -1,15 +1,12 @@
-package Pieces;
+package pieces;
 
 /**
  * Created by Dean on 2015-06-07.
  */
-public class King extends Piece {
+public class Queen extends Piece {
 
-    private boolean isAlive;
-
-    public King(String location, Color color){
+    public Queen(String location, Color color){
         super(location, color);
-        this.isAlive = true;
     }
 
     @Override

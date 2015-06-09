@@ -1,11 +1,11 @@
-package Pieces;
+package pieces;
 
 /**
  * Created by Dean on 2015-06-07.
  */
-public class Queen extends Piece {
+public class Rook extends Piece {
 
-    public Queen(String location, Color color){
+    public Rook(String location, Color color){
         super(location, color);
     }
 
