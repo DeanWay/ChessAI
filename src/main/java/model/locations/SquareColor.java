@@ -1,4 +1,4 @@
-package locations;
+package model.locations;
 
 /**
  * Created by Dean on 2015-06-08.

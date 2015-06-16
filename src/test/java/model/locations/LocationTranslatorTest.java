@@ -1,10 +1,9 @@
-package locations;
+package model.locations;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
-import static locations.LocationTranslator.translate;
+import static model.locations.LocationTranslator.translate;
 
 
 /**
@@ -21,6 +20,15 @@ public class LocationTranslatorTest
         Assert.assertEquals(new Location(7, 7), translate("h8"));
         Assert.assertEquals(new Location(3, 4), translate("e4"));
         Assert.assertEquals(new Location(7, 5), translate("F8"));
+    }
+
+    @Test
+    public void translateMakesCorrectString()
+    {
+        Assert.assertEquals("a1", translate(0, 0));
+        Assert.assertEquals("h8", translate(7, 7));
+        Assert.assertEquals("e4", translate(3, 4));
+        Assert.assertEquals("f8", translate(7, 5));
     }
 
     @Test

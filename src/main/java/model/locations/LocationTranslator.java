@@ -1,16 +1,19 @@
-package locations;
+package model.locations;
 
 /**
  * Created by Dean on 2015-06-08.
  */
 public class LocationTranslator
 {
-    public static Location translate(String location){
-        if(location.length() > 2){
+    public static Location translate(String location)
+    {
+        if(location.length() > 2)
+        {
             return null;
         }
         int row = -1, col = -1;
-        switch(location.toLowerCase().charAt(0)){
+        switch(location.toLowerCase().charAt(0))
+        {
             case 'a': col = 0;
                 break;
             case 'b': col = 1;
@@ -28,7 +31,8 @@ public class LocationTranslator
             case 'h': col = 7;
                 break;
         }
-        switch(location.toLowerCase().charAt(1)){
+        switch(location.toLowerCase().charAt(1))
+        {
             case '1': row = 0;
                 break;
             case '2': row = 1;
@@ -46,18 +50,48 @@ public class LocationTranslator
             case '8': row = 7;
                 break;
         }
-        if(row == -1 || col == -1){
+        if(row == -1 || col == -1)
+        {
             return null;
         }
         return new Location(row, col);
     }
 
-    public static SquareColor getSquareColor(Location location){
+    public static String translate(int row, int col)
+    {
+        StringBuilder sb = new StringBuilder();
+        switch (col){
+            case 0: sb.append("a");
+                break;
+            case 1: sb.append("b");
+                break;
+            case 2: sb.append("c");
+                break;
+            case 3: sb.append("d");
+                break;
+            case 4: sb.append("e");
+                break;
+            case 5: sb.append("f");
+                break;
+            case 6: sb.append("g");
+                break;
+            case 7: sb.append("h");
+                break;
+        }
+        row += 1;
+        sb.append(row);
+        return sb.toString();
+    }
+
+    public static SquareColor getSquareColor(Location location)
+    {
         if((location.getColIntVal() % 2 == 0 && location.getRowIntVal() % 2 == 0)
-                || (location.getColIntVal() % 2 ==1 && location.getRowIntVal() % 2 == 1)){
+                || (location.getColIntVal() % 2 ==1 && location.getRowIntVal() % 2 == 1))
+        {
             return SquareColor.LIGHT_SQUARE;
         }
-        else{
+        else
+        {
             return SquareColor.DARK_SQUARE;
         }
     }

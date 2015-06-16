@@ -1,0 +1,19 @@
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.10'
+}
+
+task run(type: JavaExec) {
+    main = "ui.gui.Main"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task gradleHome << {
+    println gradle.gradleHomeDir
+}

@@ -15,7 +15,10 @@ bin
 # NetBeans
 nbproject
 
-#Mac OS
+# Mac OS
 .DS_Store
 
-out
+# Gradle Build
+build
+*.log
+.gradle

@@ -1,14 +1,16 @@
-package board;
+package model.board;
 
-import locations.Square;
+import model.locations.Square;
 
 /**
  * Created by Dean on 2015-06-07.
  */
-public class Board {
+public class Board
+{
     private Square[][] board;
 
-    public Board(){
+    public Board()
+    {
         this.board = new Square[8][8];
     }
 }
