@@ -23,16 +23,4 @@ public class King extends Piece
     {
         this.is_alive = false;
     }
-
-    @Override
-    public boolean move()
-    {
-        return false;
-    }
-
-    @Override
-    public boolean isLegalMove()
-    {
-        return false;
-    }
 }

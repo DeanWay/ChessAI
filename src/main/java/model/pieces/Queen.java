@@ -10,16 +10,4 @@ public class Queen extends Piece
     {
         super(location, color);
     }
-
-    @Override
-    public boolean move()
-    {
-        return false;
-    }
-
-    @Override
-    public boolean isLegalMove()
-    {
-        return false;
-    }
 }

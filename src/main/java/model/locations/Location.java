@@ -51,6 +51,6 @@ public class Location
     @Override
     public String toString()
     {
-        return LocationTranslator.translate(row_int, col_int);
+        return LocationTranslator.locationToString(row_int, col_int);
     }
 }

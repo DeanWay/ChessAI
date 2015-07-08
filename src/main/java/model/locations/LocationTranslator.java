@@ -57,7 +57,11 @@ public class LocationTranslator
         return new Location(row, col);
     }
 
-    public static String translate(int row, int col)
+    public static String locationToString(Location location){
+        return locationToString(location.getRowIntVal(), location.getColIntVal());
+    }
+
+    public static String locationToString(int row, int col)
     {
         StringBuilder sb = new StringBuilder();
         switch (col){
