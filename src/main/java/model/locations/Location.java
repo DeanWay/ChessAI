@@ -5,10 +5,10 @@ package model.locations;
  */
 public class Location
 {
-    int row_int;
-    int col_int;
+    private int row_int;
+    private int col_int;
 
-    public Location(String location)
+    public Location(String location) throws InvalidLocationStringException
     {
         Location loc = LocationTranslator.translate(location);
         this.col_int = loc.getColIntVal();

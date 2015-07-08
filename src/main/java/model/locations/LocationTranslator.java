@@ -5,11 +5,12 @@ package model.locations;
  */
 public class LocationTranslator
 {
-    public static Location translate(String location)
+    public static Location translate(String location) throws InvalidLocationStringException
     {
         if(location.length() > 2)
         {
-            return null;
+            throw new InvalidLocationStringException("LocationTranslator.translate(String) was passed "
+                + "an invalid String: " + location);
         }
         int row = -1, col = -1;
         switch(location.toLowerCase().charAt(0))
@@ -52,7 +53,8 @@ public class LocationTranslator
         }
         if(row == -1 || col == -1)
         {
-            return null;
+            throw new InvalidLocationStringException("LocationTranslator.translate(String) was passed "
+                + "an invalid String: " + location);
         }
         return new Location(row, col);
     }

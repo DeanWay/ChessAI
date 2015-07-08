@@ -1,5 +1,6 @@
 package model.pieces;
 
+import model.locations.InvalidLocationStringException;
 import model.locations.Location;
 import model.locations.LocationTranslator;
 
@@ -15,14 +16,15 @@ public abstract class Piece
     private Color color;
     private Image image;
 
-    public Piece(String location, Color color)
+    public Piece(String location, Color color) throws InvalidLocationStringException
     {
         this.location = LocationTranslator.translate(location);
         this.color = color;
         this.image = null;
     }
 
-    public Piece(String location, Color color, Image image){
+    public Piece(String location, Color color, Image image) throws InvalidLocationStringException
+    {
         this.location = LocationTranslator.translate(location);
         this.color = color;
         this.image = image;
@@ -37,7 +39,8 @@ public abstract class Piece
         return LocationTranslator.locationToString(this.location);
     }
 
-    public boolean move(String moveTo){
+    public boolean move(String moveTo) throws InvalidLocationStringException
+    {
         this.location = LocationTranslator.translate(moveTo);
         return true;
     }

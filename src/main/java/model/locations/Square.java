@@ -10,7 +10,7 @@ public class Square extends Location
         super(row, col);
     }
 
-    public Square(String location)
+    public Square(String location) throws InvalidLocationStringException
     {
         super(location);
     }
