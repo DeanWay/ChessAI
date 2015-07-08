@@ -4,7 +4,7 @@ import model.locations.InvalidLocationStringException;
 import model.locations.Location;
 import model.locations.LocationTranslator;
 
-import java.awt.*;
+import java.awt.Image;
 
 /**
  * Created by Dean on 2015-06-07.
