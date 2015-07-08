@@ -7,7 +7,7 @@ public class LocationTranslator
 {
     public static Location translate(String location) throws InvalidLocationStringException
     {
-        if(location.length() > 2)
+        if(location.length() != 2)
         {
             throw new InvalidLocationStringException("LocationTranslator.translate(String) was passed "
                 + "an invalid String: " + location);

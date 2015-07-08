@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static model.locations.LocationTranslator.translate;
+import static model.locations.LocationTranslator.locationToString;
 
 
 /**
@@ -13,7 +14,7 @@ public class LocationTranslatorTest
 {
 
     @Test
-    public void translateMakesCorrectLocations()
+    public void translateMakesCorrectLocations() throws InvalidLocationStringException
     {
         Assert.assertEquals(new Location(0, 0), translate("a1"));
         Assert.assertEquals(new Location(0, 0), translate("A1"));
@@ -25,19 +26,45 @@ public class LocationTranslatorTest
     @Test
     public void translateMakesCorrectString()
     {
-        Assert.assertEquals("a1", translate(0, 0));
-        Assert.assertEquals("h8", translate(7, 7));
-        Assert.assertEquals("e4", translate(3, 4));
-        Assert.assertEquals("f8", translate(7, 5));
+        Assert.assertEquals("a1", locationToString(0, 0));
+        Assert.assertEquals("h8", locationToString(7, 7));
+        Assert.assertEquals("e4", locationToString(3, 4));
+        Assert.assertEquals("f8", locationToString(7, 5));
     }
 
-    @Test
-    public void translateReturnsNullOnInvalidStrings()
+    @Test(expected = InvalidLocationStringException.class)
+    public void translateThrowsExceptionStingWithComma() throws InvalidLocationStringException
     {
-        Assert.assertNull(translate("A,2"));
-        Assert.assertNull(translate("4e"));
-        Assert.assertNull(translate("a 1"));
-        Assert.assertNull(translate("e4 NONSENSE_TEXT"));
-        Assert.assertNull(translate("e4NONSENSE_TEXT"));
+        translate("A,2");
+    }
+
+    @Test(expected = InvalidLocationStringException.class)
+    public void translateThrowsExceptionStringWithSpace() throws InvalidLocationStringException
+    {
+        translate("a 1");
+    }
+
+    @Test(expected = InvalidLocationStringException.class)
+    public void translateThrowsExceptionWithEmptyString() throws InvalidLocationStringException
+    {
+        translate("");
+    }
+
+    @Test(expected = InvalidLocationStringException.class)
+    public void translateThrowsExceptionWithStringLengthOne() throws InvalidLocationStringException
+    {
+        translate("a");
+    }
+
+    @Test(expected = InvalidLocationStringException.class)
+    public void translateThrowsExceptionStringWithWrongOrder() throws InvalidLocationStringException
+    {
+        translate("2a");
+    }
+
+    @Test(expected = InvalidLocationStringException.class)
+    public void translateThrowsExceptionWithStringTooLong() throws InvalidLocationStringException
+    {
+        translate("e4NONSENSE_TEXT");
     }
 }
