@@ -15,6 +15,7 @@ public abstract class Piece
     private Location location;
     private Color color;
     private Image image;
+    private char unicodeImage;
 
     public Piece(String location, Color color) throws InvalidLocationStringException
     {
@@ -28,6 +29,17 @@ public abstract class Piece
         this.location = LocationTranslator.translate(location);
         this.color = color;
         this.image = image;
+    }
+
+    protected void setUnicodeImage(int unicodeHex){
+        if(Character.isDefined(unicodeHex)){
+            char[] unicode = Character.toChars(unicodeHex);
+            this.unicodeImage = unicode[0];
+        }
+    }
+
+    public char getUnicodeImage(){
+        return this.unicodeImage;
     }
 
     public Location getLocation(){

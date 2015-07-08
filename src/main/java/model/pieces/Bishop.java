@@ -11,5 +11,10 @@ public class Bishop extends Piece
     public Bishop(String location, Color color) throws InvalidLocationStringException
     {
         super(location, color);
+        if(color == Color.WHITE){
+            this.setUnicodeImage(0x2657);
+        } else {
+            this.setUnicodeImage(0x265D);
+        }
     }
 }

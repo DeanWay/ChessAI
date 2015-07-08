@@ -13,6 +13,11 @@ public class King extends Piece
     public King(String location, Color color) throws InvalidLocationStringException
     {
         super(location, color);
+        if(color == Color.WHITE){
+            this.setUnicodeImage(0x2654);
+        } else {
+            this.setUnicodeImage(0x265A);
+        }
         this.is_alive = true;
     }
 
